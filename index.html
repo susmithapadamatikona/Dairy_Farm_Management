@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Stackly is a premium dairy farm management website for modern livestock, milk production, and farm operations.">
+  <title>Stackly | Premium Dairy Farm Management</title>
+  <link rel="stylesheet" href="css/style.css?v=9">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <style>
+    .home-about {
+      position: relative !important;
+      overflow: hidden !important;
+      padding: 86px 0 !important;
+      background: linear-gradient(180deg, #f7faf5 0%, #eef7ed 100%) !important;
+    }
+
+    .home-about::before {
+      content: none !important;
+    }
+
+    .home-about .container {
+      width: min(100% - 48px, 1180px) !important;
+      margin: 0 auto !important;
+    }
+
+    .home-about-grid {
+      position: relative !important;
+      z-index: 1 !important;
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+      gap: 0 !important;
+      align-items: start !important;
+    }
+
+    .home-about-main {
+      grid-column: 1 !important;
+      padding: 0 !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      backdrop-filter: none !important;
+    }
+
+    .about-kicker {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      margin: 0 0 16px !important;
+      color: #2e7d32 !important;
+      font: 800 0.82rem/1 Inter, Arial, sans-serif !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+    }
+
+    .about-kicker svg {
+      width: 21px !important;
+      height: 21px !important;
+      fill: none !important;
+      stroke: currentColor !important;
+      stroke-width: 2.3 !important;
+      stroke-linecap: round !important;
+      stroke-linejoin: round !important;
+    }
+
+    .home-about-main h2 {
+      max-width: 760px !important;
+      color: #143526 !important;
+      font: 800 clamp(2.15rem, 4vw, 3.35rem)/1.12 Poppins, Arial, sans-serif !important;
+      letter-spacing: 0 !important;
+      margin: 0 !important;
+    }
+
+    .home-about-main .lead {
+      max-width: 760px !important;
+      margin: 20px 0 0 !important;
+      color: #53675d !important;
+      font: 500 1.04rem/1.7 Inter, Arial, sans-serif !important;
+    }
+
+    .about-detail {
+      max-width: 860px !important;
+      margin: 18px 0 0 !important;
+      color: #53675d !important;
+      font: 400 1rem/1.72 Inter, Arial, sans-serif !important;
+    }
+
+    .home-about-actions {
+      position: relative !important;
+      display: flex !important;
+      flex-wrap: wrap !important;
+      align-items: center !important;
+      gap: 12px !important;
+      margin-top: 28px !important;
+    }
+
+    .home-about-actions::after {
+      content: none !important;
+    }
+
+    .about-more,
+    .about-arrow {
+      min-height: 50px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      border-radius: 8px !important;
+      color: #fff !important;
+      background: linear-gradient(135deg, #0b5d3b, #4caf50) !important;
+      font-weight: 800 !important;
+      text-transform: uppercase !important;
+      box-shadow: 0 14px 30px rgba(11, 93, 59, 0.22) !important;
+      transform: none !important;
+    }
+
+    .about-more {
+      padding: 0 22px !important;
+      font-size: 0.84rem !important;
+    }
+
+    .about-arrow {
+      width: 50px !important;
+      font-size: 1.2rem !important;
+      line-height: 1 !important;
+    }
+
+    .about-feature-grid {
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 24px !important;
+      margin-top: 34px !important;
+    }
+
+    .about-feature-card {
+      min-height: 430px !important;
+      padding: 0 0 28px !important;
+      border: 1px solid rgba(11, 93, 59, 0.13) !important;
+      border-radius: 16px !important;
+      background: #fff !important;
+      box-shadow: 0 18px 42px rgba(20, 54, 38, 0.11) !important;
+      transform: none !important;
+      overflow: hidden !important;
+    }
+
+    .about-feature-card img {
+      width: 100% !important;
+      height: 210px !important;
+      margin: 0 0 24px !important;
+      display: block !important;
+      object-fit: cover !important;
+      object-position: center !important;
+      border-radius: 0 !important;
+    }
+
+    .about-feature-icon {
+      width: 54px !important;
+      height: 54px !important;
+      display: grid !important;
+      place-items: center !important;
+      margin: 0 28px 18px !important;
+      color: #0b5d3b !important;
+      border-radius: 14px !important;
+      background: rgba(76, 175, 80, 0.12) !important;
+    }
+
+    .about-feature-icon svg {
+      width: 31px !important;
+      height: 31px !important;
+      fill: none !important;
+      stroke: currentColor !important;
+      stroke-width: 1.8 !important;
+      stroke-linecap: round !important;
+      stroke-linejoin: round !important;
+    }
+
+    .about-feature-card h3 {
+      margin: 0 28px 11px !important;
+      color: #143526 !important;
+      font: 700 1.28rem/1.25 Poppins, Arial, sans-serif !important;
+    }
+
+    .about-feature-card p {
+      max-width: none !important;
+      color: #65736b !important;
+      font: 400 0.95rem/1.55 Inter, Arial, sans-serif !important;
+      margin: 0 28px !important;
+    }
+
+    .about-proof-row {
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 10px !important;
+      margin-top: 22px !important;
+    }
+
+    .about-proof-row span {
+      min-height: 64px !important;
+      display: grid !important;
+      place-items: center !important;
+      padding: 10px !important;
+      border-radius: 12px !important;
+      color: #0b5d3b !important;
+      background: rgba(76, 175, 80, 0.1) !important;
+      font-weight: 800 !important;
+      text-align: center !important;
+      line-height: 1.25 !important;
+    }
+
+    .about-care-list {
+      display: grid !important;
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: 12px !important;
+      margin: 24px 0 0 !important;
+      padding: 0 !important;
+      list-style: none !important;
+    }
+
+    .about-care-list li {
+      position: relative !important;
+      padding: 14px 16px 14px 42px !important;
+      border: 1px solid rgba(11, 93, 59, 0.12) !important;
+      border-radius: 12px !important;
+      color: #315342 !important;
+      background: rgba(255, 255, 255, 0.72) !important;
+      font-weight: 700 !important;
+    }
+
+    .about-care-list li::before {
+      content: "" !important;
+      position: absolute !important;
+      left: 16px !important;
+      top: 20px !important;
+      width: 10px !important;
+      height: 10px !important;
+      border-radius: 50% !important;
+      background: #4caf50 !important;
+    }
+
+    .service-card {
+      overflow: hidden !important;
+      padding: 0 0 24px !important;
+    }
+
+    .service-card-img {
+      width: 100% !important;
+      height: 168px !important;
+      display: block !important;
+      margin: 0 0 22px !important;
+      object-fit: cover !important;
+      object-position: center !important;
+      border-radius: 0 !important;
+    }
+
+    .service-card .icon-box,
+    .service-card h3,
+    .service-card p {
+      margin-left: 24px !important;
+      margin-right: 24px !important;
+    }
+
+    .gallery-card {
+      overflow: hidden !important;
+      border: 1px solid rgba(11, 93, 59, 0.13) !important;
+      border-radius: 16px !important;
+      background: #ffffff !important;
+      box-shadow: 0 16px 38px rgba(20, 54, 38, 0.09) !important;
+      transition: transform 0.28s ease, box-shadow 0.28s ease !important;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-6px) !important;
+      box-shadow: 0 22px 48px rgba(20, 54, 38, 0.14) !important;
+    }
+
+    .gallery-card img {
+      height: 190px !important;
+      border-radius: 0 !important;
+      margin: 0 !important;
+    }
+
+    .gallery-card-body {
+      padding: 20px !important;
+    }
+
+    .gallery-card .meta {
+      display: block !important;
+      margin-bottom: 8px !important;
+      color: #2e7d32 !important;
+      font-size: 0.76rem !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.06em !important;
+    }
+
+    .gallery-card h3 {
+      margin: 0 0 9px !important;
+      color: #143526 !important;
+      font-size: 1.12rem !important;
+      line-height: 1.28 !important;
+    }
+
+    .gallery-card p {
+      color: #65736b !important;
+      font-size: 0.94rem !important;
+      line-height: 1.55 !important;
+    }
+
+    .home-process {
+      background: #ffffff !important;
+    }
+
+    .process-timeline {
+      display: grid !important;
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      gap: 18px !important;
+      counter-reset: process !important;
+    }
+
+    .process-step {
+      position: relative !important;
+      min-height: 260px !important;
+      padding: 28px 24px !important;
+      border: 1px solid rgba(11, 93, 59, 0.13) !important;
+      border-radius: 16px !important;
+      background: linear-gradient(180deg, #ffffff 0%, #f3faf2 100%) !important;
+      box-shadow: 0 16px 36px rgba(20, 54, 38, 0.08) !important;
+    }
+
+    .process-step::before {
+      counter-increment: process !important;
+      content: "0" counter(process) !important;
+      width: 48px !important;
+      height: 48px !important;
+      display: grid !important;
+      place-items: center !important;
+      margin-bottom: 22px !important;
+      border-radius: 14px !important;
+      color: #ffffff !important;
+      background: linear-gradient(135deg, #0b5d3b, #4caf50) !important;
+      font-weight: 900 !important;
+      box-shadow: 0 12px 26px rgba(11, 93, 59, 0.22) !important;
+    }
+
+    .process-step h3 {
+      margin: 0 0 10px !important;
+      color: #143526 !important;
+      font-size: 1.16rem !important;
+    }
+
+    .process-step p {
+      color: #65736b !important;
+      line-height: 1.62 !important;
+    }
+
+    .home-products {
+      background: linear-gradient(180deg, #f7faf5 0%, #ffffff 100%) !important;
+    }
+
+    .product-showcase {
+      display: grid !important;
+      grid-template-columns: 0.92fr 1.08fr !important;
+      gap: 30px !important;
+      align-items: stretch !important;
+    }
+
+    .product-photo {
+      min-height: 460px !important;
+      border-radius: 20px !important;
+      overflow: hidden !important;
+      background: linear-gradient(rgba(11, 93, 59, 0.08), rgba(11, 93, 59, 0.08)), url("https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=1200&q=80") center/cover !important;
+      box-shadow: 0 24px 60px rgba(20, 54, 38, 0.16) !important;
+    }
+
+    .product-grid {
+      display: grid !important;
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: 18px !important;
+    }
+
+    .product-card {
+      padding: 24px !important;
+      border: 1px solid rgba(11, 93, 59, 0.13) !important;
+      border-radius: 16px !important;
+      background: #ffffff !important;
+      box-shadow: 0 14px 32px rgba(20, 54, 38, 0.08) !important;
+    }
+
+    .product-card span {
+      width: 46px !important;
+      height: 46px !important;
+      display: grid !important;
+      place-items: center !important;
+      margin-bottom: 16px !important;
+      border-radius: 14px !important;
+      color: #0b5d3b !important;
+      background: rgba(244, 180, 0, 0.18) !important;
+      font-weight: 900 !important;
+    }
+
+    .product-card h3 {
+      margin: 0 0 9px !important;
+      color: #143526 !important;
+      font-size: 1.14rem !important;
+    }
+
+    .product-card p {
+      color: #65736b !important;
+      line-height: 1.58 !important;
+    }
+
+    .testimonial-grid {
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 22px !important;
+    }
+
+    .testimonial-card {
+      padding: 28px !important;
+      border: 1px solid rgba(11, 93, 59, 0.13) !important;
+      border-radius: 16px !important;
+      background: #ffffff !important;
+      box-shadow: 0 18px 42px rgba(20, 54, 38, 0.09) !important;
+    }
+
+    .testimonial-card p {
+      color: #315342 !important;
+      font-weight: 600 !important;
+      line-height: 1.68 !important;
+    }
+
+    .testimonial-card strong {
+      display: block !important;
+      margin-top: 20px !important;
+      color: #0b5d3b !important;
+    }
+
+    .testimonial-card span {
+      display: block !important;
+      margin-top: 4px !important;
+      color: #65736b !important;
+      font-size: 0.9rem !important;
+    }
+
+    .home-cta {
+      padding: 84px 0 !important;
+      background: linear-gradient(135deg, #073723, #0b5d3b 62%, #2e7d32) !important;
+    }
+
+    .home-cta-box {
+      display: grid !important;
+      grid-template-columns: 1fr auto !important;
+      gap: 26px !important;
+      align-items: center !important;
+    }
+
+    .home-cta h2,
+    .home-cta p {
+      color: #ffffff !important;
+    }
+
+    .home-cta h2 {
+      max-width: 760px !important;
+      font-size: clamp(2rem, 4vw, 3.4rem) !important;
+    }
+
+    .home-cta p {
+      max-width: 680px !important;
+      margin-top: 12px !important;
+      color: rgba(255, 255, 255, 0.78) !important;
+      line-height: 1.66 !important;
+    }
+
+    .home-cta-actions {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      gap: 12px !important;
+      justify-content: flex-end !important;
+    }
+
+    .home-cta .btn-outline {
+      color: #ffffff !important;
+      border-color: rgba(255, 255, 255, 0.32) !important;
+      background: rgba(255, 255, 255, 0.08) !important;
+    }
+
+    .about-feature-card,
+    .gallery-card,
+    .process-step,
+    .product-card,
+    .testimonial-card {
+      cursor: pointer !important;
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, background 0.28s ease, color 0.28s ease !important;
+    }
+
+    .about-feature-card:hover,
+    .gallery-card:hover,
+    .process-step:hover,
+    .product-card:hover,
+    .testimonial-card:hover {
+      color: #ffffff !important;
+      border-color: rgba(76, 175, 80, 0.62) !important;
+      background: linear-gradient(135deg, #0b5d3b, #2e7d32) !important;
+      box-shadow: 0 24px 58px rgba(11, 93, 59, 0.24) !important;
+      transform: translateY(-6px) !important;
+    }
+
+    .about-feature-card:hover h3,
+    .about-feature-card:hover p,
+    .gallery-card:hover h3,
+    .gallery-card:hover p,
+    .gallery-card:hover .meta,
+    .process-step:hover h3,
+    .process-step:hover p,
+    .product-card:hover h3,
+    .product-card:hover p,
+    .testimonial-card:hover p,
+    .testimonial-card:hover strong,
+    .testimonial-card:hover span {
+      color: #ffffff !important;
+    }
+
+    .about-feature-card:hover .about-feature-icon,
+    .product-card:hover span,
+    .process-step:hover::before {
+      color: #0b5d3b !important;
+      background: rgba(255, 255, 255, 0.92) !important;
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.14) !important;
+    }
+
+    @media (max-width: 960px) {
+      .home-about-grid {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+      }
+
+      .about-feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+
+      .process-timeline,
+      .testimonial-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+
+      .product-showcase,
+      .home-cta-box {
+        grid-template-columns: 1fr !important;
+      }
+
+      .home-cta-actions {
+        justify-content: flex-start !important;
+      }
+
+      .home-about-main {
+        grid-column: 1 !important;
+        padding: 0 !important;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .home-about {
+        padding: 62px 0 !important;
+      }
+
+      .home-about .container {
+        width: min(100% - 32px, 1180px) !important;
+      }
+
+      .home-about-main {
+        padding: 0 !important;
+      }
+
+      .about-feature-grid,
+      .about-care-list,
+      .about-proof-row,
+      .process-timeline,
+      .product-grid,
+      .testimonial-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .product-photo {
+        min-height: 320px !important;
+      }
+
+      .service-card-img {
+        height: 210px !important;
+      }
+
+      .gallery-card img {
+        height: 220px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="index.html" aria-label="Stackly home"><span class="brand-mark"><img src="assets/images/logo stackly.webp" alt="Stackly logo"></span></a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      <div class="nav-panel">
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a data-nav href="index.html">Home</a><a data-nav href="about.html">About</a><a data-nav href="our-farm.html">Our Farm</a><a data-nav href="services.html">Services</a><a data-nav href="blog.html">Blog</a><a data-nav href="contact.html">Contact</a>
+        </nav>
+        <div class="nav-actions"><a class="btn-outline" data-nav href="login.html">Login</a><a class="btn-solid" data-nav href="register.html">Register</a></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="hero hero-agri">
+      <div class="container hero-agri-grid reveal">
+        <div class="hero-agri-copy">
+          <p class="hero-eyebrow">Natural Farming + Healthy Future</p>
+          <h1>Pure Milk<br><span>Pure Life</span></h1>
+          <p class="hero-agri-lead">We are committed to providing fresh, natural and healthy milk from our happy cows to your family. Experience the purity in every drop.</p>
+          <div class="hero-agri-actions">
+            <a class="hero-discover" href="our-farm.html">Discover Our Farm <span aria-hidden="true">&rarr;</span></a>
+            <a class="hero-video" href="services.html" aria-label="Watch video"><span></span>Watch Video</a>
+          </div>
+        </div>
+      </div>
+      <div class="container hero-stats-panel reveal">
+        <article><span class="hero-stat-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 10h3l2-3h6l2 3h3v5h-2v3h-3v-3H9v3H6v-3H4v-5Z"/><path d="M7 10V7M17 10V7M9 15l-2 3M15 15l2 3"/></svg></span><strong>500+</strong><p>Healthy Cows</p></article>
+        <article><span class="hero-stat-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 3h6v4l2 2v11H7V9l2-2V3Z"/><path d="M9 7h6M10 12h4M10 16h4"/></svg></span><strong>12K+</strong><p>Liters Milk / Day</p></article>
+        <article><span class="hero-stat-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4l2.2 4.5 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5L4.8 9.2l5-.7L12 4Z"/><path d="M8 21h8"/></svg></span><strong>25+</strong><p>Years Experience</p></article>
+        <article><span class="hero-stat-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M4 20c.8-4 3.7-6 8-6s7.2 2 8 6"/><path d="M5 11a3 3 0 0 0 2 5M19 11a3 3 0 0 1-2 5"/></svg></span><strong>15K+</strong><p>Happy Customers</p></article>
+      </div>
+    </section>
+
+    <section class="section home-about">
+      <div class="container home-about-grid">
+        <div class="home-about-main reveal">
+          <p class="about-kicker"><span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 3h6v4l2 2v11H7V9l2-2V3Z"/><path d="M9 7h6M10 12h4M10 16h4"/></svg></span> About Stackly</p>
+          <h2>Pure milk starts with healthy cows and careful farm management.</h2>
+          <p class="lead">Stackly brings herd care, milk production, feed planning, and quality checks into one calm, reliable farm system built for daily dairy operations.</p>
+          <p class="about-detail">Our farm focuses on clean sheds, balanced nutrition, regular health checks, and careful milk handling from collection to storage. Every record helps the team protect animal comfort, improve yield, and deliver fresh dairy products with dependable quality.</p>
+          <div class="home-about-actions">
+            <a class="about-more" href="about.html">About Farm</a>
+            <a class="about-arrow" href="about.html" aria-label="Learn more about Stackly">&nearr;</a>
+          </div>
+          <div class="about-feature-grid">
+            <article class="about-feature-card">
+              <img src="assets/images/healthy-herd-care-hero.webp" alt="Healthy dairy cow in pasture">
+              <span class="about-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 10h3l2-3h6l2 3h3v5h-2v3h-3v-3H9v3H6v-3H4v-5Z"/><path d="M7 10V7M17 10V7M9 15l-2 3M15 15l2 3"/></svg></span>
+              <h3>Healthy Herd Care</h3>
+              <p>Track cow profiles, breeding stages, vaccinations, and vet visits with clear daily records.</p>
+            </article>
+            <article class="about-feature-card">
+              <img src="assets/images/milk-quality-control-hero.webp" alt="Fresh milk quality testing and dairy production">
+              <span class="about-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 3h6v4l2 2v11H7V9l2-2V3Z"/><path d="M9 7h6M10 12h4M10 16h4"/></svg></span>
+              <h3>Milk Quality Control</h3>
+              <p>Record daily yield, batch quality, storage status, and production trends from one place.</p>
+            </article>
+            <article class="about-feature-card">
+              <img src="assets/images/clean-farm-operations-hero.webp" alt="Clean modern dairy farm operations">
+              <span class="about-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19h16"/><path d="M6 19V9l6-4 6 4v10"/><path d="M9 19v-6h6v6"/><path d="M8 9h8"/></svg></span>
+              <h3>Clean Farm Operations</h3>
+              <p>Manage feed, staff tasks, hygiene routines, and daily farm reports with confidence.</p>
+            </article>
+          </div>
+          <ul class="about-care-list">
+            <li>Fresh feed planning and stock visibility</li>
+            <li>Daily milking records and batch traceability</li>
+            <li>Vaccination, treatment, and vet visit reminders</li>
+            <li>Clean storage practices for premium dairy quality</li>
+          </ul>
+          <div class="about-proof-row" aria-label="Stackly highlights">
+            <span>500+ healthy cows</span>
+            <span>12K+ liters daily</span>
+            <span>25+ years care</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section compact">
+      <div class="container">
+        <div class="section-head reveal"><div><p class="section-kicker">Premium services</p><h2>Enterprise tools for every farm unit.</h2></div><a class="btn-outline" href="services.html">View Services</a></div>
+        <div class="grid-4">
+          <article class="card service-card reveal"><img class="service-card-img" src="assets/images/healthy-herd-care-hero.webp" alt="Dairy cows tracked for herd management"><span class="icon-box">CM</span><h3>Cow Management</h3><p>Profiles, lactation stages, breeding, and welfare observations.</p></article>
+          <article class="card service-card reveal"><img class="service-card-img" src="assets/images/milk-quality-control-hero.webp" alt="Milk production and quality control process"><span class="icon-box">MP</span><h3>Milk Production</h3><p>Daily collection records, batch quality, and yield performance.</p></article>
+          <article class="card service-card reveal"><img class="service-card-img" src="https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?auto=format&fit=crop&w=800&q=80" alt="Veterinary care for dairy farm animals"><span class="icon-box">AH</span><h3>Animal Health</h3><p>Vaccination schedules, vet visits, and treatment history.</p></article>
+          <article class="card service-card reveal"><img class="service-card-img" src="https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&w=800&q=80" alt="Farm field and feed inventory planning"><span class="icon-box">FM</span><h3>Feed Inventory</h3><p>Stock, consumption, cost, supplier, and reorder visibility.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container feature-band reveal">
+        <div><p class="section-kicker" style="color:#f7d96b">Farm features</p><h2>Precision care from pasture to premium milk.</h2><p class="lead">Connect livestock care, production, staffing, weather, and reporting so managers can make faster decisions with confidence.</p></div>
+        <ul class="feature-list"><li>Automated milk collection summaries</li><li>Veterinary and vaccination reminders</li><li>Employee task boards and reports</li><li>Quality control and batch traceability</li></ul>
+      </div>
+    </section>
+
+    <section class="section compact">
+      <div class="container">
+        <div class="section-head reveal"><div><p class="section-kicker">Gallery preview</p><h2>Modern agriculture, naturally managed.</h2></div><a class="btn-outline" href="our-farm.html">See Farm</a></div>
+        <div class="gallery-grid reveal">
+          <article class="gallery-card"><img src="assets/images/pasture-care-background.webp" alt="Cow in open pasture"><div class="gallery-card-body"><span class="meta">Pasture care</span><h3>Open grazing zones</h3><p>Clean movement areas help cows stay calm, active, and comfortable through the day.</p></div></article>
+          <article class="gallery-card"><img src="assets/images/feed-planning-background.webp" alt="Agricultural field at sunrise"><div class="gallery-card-body"><span class="meta">Feed planning</span><h3>Balanced farm nutrition</h3><p>Feed routines are planned around stock levels, seasonal growth, and herd requirements.</p></div></article>
+          <article class="gallery-card"><img src="assets/images/herd-records-background.webp" alt="Dairy cattle on a farm"><div class="gallery-card-body"><span class="meta">Herd records</span><h3>Daily livestock tracking</h3><p>Every cow profile supports better breeding, health, lactation, and productivity decisions.</p></div></article>
+          <article class="gallery-card"><img src="assets/images/clean-workflow-quality-led-operations.webp" alt="Green rural landscape"><div class="gallery-card-body"><span class="meta">Clean workflow</span><h3>Quality-led operations</h3><p>From shed hygiene to milk storage, each step is managed for dependable dairy quality.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section home-process">
+      <div class="container">
+        <div class="section-head reveal"><div><p class="section-kicker">Daily workflow</p><h2>Every day is managed with care, timing, and clean records.</h2></div></div>
+        <div class="process-timeline">
+          <article class="process-step reveal"><h3>Morning Health Check</h3><p>Teams review animal comfort, shed hygiene, feed access, and overnight observations before milking starts.</p></article>
+          <article class="process-step reveal"><h3>Fresh Feed Planning</h3><p>Balanced rations are prepared from inventory records so every group gets the right nutrition at the right time.</p></article>
+          <article class="process-step reveal"><h3>Milking And Testing</h3><p>Milk is collected in calm routines, checked for quality, and recorded by batch for dependable traceability.</p></article>
+          <article class="process-step reveal"><h3>Cold Storage Dispatch</h3><p>Fresh milk moves into clean storage quickly, with dispatch notes ready for delivery and quality review.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section home-products">
+      <div class="container product-showcase">
+        <div class="product-photo reveal" role="img" aria-label="Fresh dairy products and milk bottles"></div>
+        <div class="reveal">
+          <p class="section-kicker">Fresh dairy promise</p>
+          <h2>Built for families, cafes, and farms that care about freshness.</h2>
+          <p class="lead">From animal welfare to temperature control, each step is designed to protect natural taste, nutrition, and trust.</p>
+          <div class="product-grid" style="margin-top:24px">
+            <article class="product-card"><span>01</span><h3>Fresh Milk</h3><p>Collected daily, quality checked, and handled through clean storage routines.</p></article>
+            <article class="product-card"><span>02</span><h3>Curd And Yogurt</h3><p>Made from carefully handled milk with attention to texture, taste, and consistency.</p></article>
+            <article class="product-card"><span>03</span><h3>Butter And Ghee</h3><p>Prepared with a focus on rich flavor, clean processing, and batch accountability.</p></article>
+            <article class="product-card"><span>04</span><h3>Farm Supply</h3><p>Reliable dairy supply support for local stores, kitchens, and regular customers.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section compact">
+      <div class="container">
+        <div class="section-head reveal"><div><p class="section-kicker">Customer trust</p><h2>Trusted by people who depend on clean dairy every day.</h2></div></div>
+        <div class="testimonial-grid">
+          <article class="testimonial-card reveal"><p>"The milk quality is consistent, fresh, and easy to trust. Their farm updates make the whole process feel transparent."</p><strong>Priya Menon</strong><span>Home customer</span></article>
+          <article class="testimonial-card reveal"><p>"For our cafe, dependable morning supply matters. Stackly keeps quality, timing, and communication impressively clear."</p><strong>Arun Patel</strong><span>Cafe owner</span></article>
+          <article class="testimonial-card reveal"><p>"The focus on animal care and record keeping shows in the product. It feels like a modern farm with real discipline."</p><strong>Meera Shah</strong><span>Retail partner</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section compact">
+      <div class="container grid-3">
+        <article class="card blog-card reveal"><img src="https://images.unsplash.com/photo-1499529112087-3cb3b73cec95?auto=format&fit=crop&w=800&q=80" alt="Farm notebook and crops"><p class="meta">Farm Strategy</p><h3>How daily milk records improve herd planning</h3><p>Turn collection data into breeding, feed, and quality decisions.</p><a class="btn-small" href="blog.html">Read More</a></article>
+        <article class="card blog-card reveal"><img src="https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?auto=format&fit=crop&w=800&q=80" alt="Veterinary care at farm"><p class="meta">Animal Health</p><h3>Creating a calm vaccination calendar</h3><p>Reduce missed treatments with clear schedules and reminders.</p><a class="btn-small" href="blog.html">Read More</a></article>
+        <article class="card blog-card reveal"><img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=800&q=80" alt="Fresh dairy bottle"><p class="meta">Quality Control</p><h3>Premium milk starts before collection</h3><p>Monitor hygiene, storage, and batch checks at each stage.</p><a class="btn-small" href="blog.html">Read More</a></article>
+      </div>
+    </section>
+
+    <section class="home-cta">
+      <div class="container home-cta-box reveal">
+        <div>
+          <h2>Ready to bring cleaner dairy operations into one place?</h2>
+          <p>Start with better records for herd care, milk quality, staff routines, and customer-ready reports.</p>
+        </div>
+        <div class="home-cta-actions">
+          <a class="btn-light" href="register.html">Create Account</a>
+          <a class="btn-outline" href="contact.html">Talk To Team</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col"><a class="brand" href="index.html"><span class="brand-mark"><img src="assets/images/logo stackly.webp" alt="Stackly logo"></span></a><p>Premium dairy operations platform for farms that value animal welfare, clean production, and accountable management.</p><div class="social-row"><a href="404.html">f</a><a href="404.html">in</a><a href="404.html">x</a></div></div>
+      <div class="footer-col"><h3>Quick Links</h3><ul><li><a href="about.html">About</a></li><li><a href="our-farm.html">Our Farm</a></li><li><a href="services.html">Services</a></li><li><a href="blog.html">Blog</a></li></ul></div>
+      <div class="footer-col"><h3>Services</h3><ul><li>Milk Production</li><li>Cow Management</li><li>Veterinary Records</li><li>Farm Consultancy</li></ul></div>
+      <div class="footer-col"><h3>Newsletter</h3><p>Get farm operations notes and dairy quality insights.</p><form class="newsletter-form" data-newsletter><input type="email" placeholder="Email address" required><button class="btn-light" type="submit">Join</button><span class="success-message"></span></form></div>
+    </div>
+    <div class="footer-bottom"><div class="footer-bottom-inner"><span>Copyright <span data-year></span> Stackly. All rights reserved.</span><div class="footer-legal"><a href="404.html">Privacy Policy</a><a href="404.html">Terms</a><a href="contact.html">Contact</a></div></div></div>
+  </footer>
+  <button class="back-to-top" aria-label="Back to top">&uarr;</button>
+  <script src="js/navigation.js"></script><script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script><script src="js/animations.js"></script><script src="js/counter.js"></script><script src="js/slider.js"></script><script src="js/main.js"></script>
+</body>
+</html>
