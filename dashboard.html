@@ -41,6 +41,7 @@
         <button type="button" data-logout>Logout</button>
       </nav>
     </aside>
+    <div class="dashboard-backdrop" hidden aria-hidden="true"></div>
 
     <section class="dashboard-main">
       <div class="dashboard-topbar">
@@ -49,6 +50,9 @@
           <h1 style="font-size:clamp(2rem,4vw,3.2rem)">Welcome, <span data-welcome-user>Farm Manager</span></h1>
         </div>
         <div class="dashboard-topbar-right">
+          <button class="menu-toggle dashboard-menu-toggle" type="button" aria-label="Toggle sidebar menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
           <span class="dashboard-email-chip" data-dashboard-email>Not signed in</span>
           <a class="btn-outline" href="index.html">View Website</a>
         </div>
