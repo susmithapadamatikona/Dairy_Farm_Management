@@ -1,13 +1,223 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Stackly premium farm management dashboard."><title>Dashboard | Stackly</title><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"></head><body class="dashboard-body">
-<header class="site-header"><div class="nav-wrap"><a class="brand" href="index.html"><span class="brand-mark"><img src="assets/images/logo stackly.webp" alt="Stackly logo"></span></a><button class="menu-toggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button><div class="nav-panel"><nav class="nav-links"><a data-nav href="index.html">Home</a><a data-nav href="about.html">About</a><a data-nav href="our-farm.html">Our Farm</a><a data-nav href="services.html">Services</a><a data-nav href="blog.html">Blog</a><a data-nav href="contact.html">Contact</a></nav><div class="nav-actions"><a class="btn-outline" data-nav href="login.html">Login</a><a class="btn-solid" data-nav href="register.html">Register</a></div></div></div></header>
-<main class="dashboard-shell page-shell"><aside class="dashboard-sidebar"><a class="brand" href="index.html"><span class="brand-mark"><img src="assets/images/logo stackly.webp" alt="Stackly logo"></span></a><nav class="dash-nav" aria-label="Dashboard navigation"><a href="#" class="active" data-dash-link="overview">Dashboard</a><a href="#" data-dash-link="cows">Cow Management</a><a href="#" data-dash-link="milk">Milk Production</a><a href="#" data-dash-link="employees">Employees</a><a href="#" data-dash-link="feed">Feed Inventory</a><a href="#" data-dash-link="vet">Veterinary Records</a><a href="#" data-dash-link="reports">Reports</a><a href="#" data-dash-link="settings">Settings</a><button type="button" data-logout>Logout</button></nav></aside>
-<section class="dashboard-main"><div class="dashboard-topbar"><div><p class="section-kicker">Operations overview</p><h1 style="font-size:clamp(2rem,4vw,3.2rem)">Welcome, <span data-welcome-user>Farm Manager</span></h1></div><a class="btn-outline" href="index.html">View Website</a></div>
-<div data-dash-section="overview"><div class="grid-4"><article class="card dashboard-card reveal"><p>Daily Milk</p><strong class="stat-number" data-counter="1850" data-suffix=" L">0</strong></article><article class="card dashboard-card reveal"><p>Healthy Cows</p><strong class="stat-number" data-counter="412">0</strong></article><article class="card dashboard-card reveal"><p>Employees</p><strong class="stat-number" data-counter="36">0</strong></article><article class="card dashboard-card reveal"><p>Feed Stock</p><strong class="stat-number" data-counter="84" data-suffix="%">0</strong></article></div><div class="grid-2" style="margin-top:24px"><article class="card dashboard-card reveal"><h3>Milk Collection Chart</h3><div class="chart-bars"><span style="height:62%"></span><span style="height:78%"></span><span style="height:68%"></span><span style="height:88%"></span><span style="height:74%"></span><span style="height:92%"></span><span style="height:81%"></span></div></article><article class="card dashboard-card reveal"><h3>Recent Activities</h3><ul class="activity-list"><li>Evening collection closed at 912 liters.</li><li>Vet follow-up scheduled for Barn B.</li><li>Feed inventory reorder created for mineral mix.</li><li>Quality lab approved Batch GV-2048.</li></ul></article></div><div class="grid-3" style="margin-top:24px"><article class="card dashboard-card reveal"><h3>Weather Widget</h3><p>Partly cloudy, 24 C, light wind. Ideal grazing window before 3 PM.</p></article><article class="card dashboard-card reveal"><h3>Quick Actions</h3><div class="feature-list"><li>Add milk record</li><li>Create vet task</li><li>Update feed stock</li></div></article><article class="card dashboard-card reveal"><h3>Calendar & Tasks</h3><ul class="task-list"><li>10:00 AM Quality audit</li><li>2:00 PM Breeding review</li><li>5:30 PM Collection handover</li></ul></article></div></div>
-<div data-dash-section="cows" hidden><div class="section-head"><div><p class="section-kicker">Cow management</p><h2>Herd profiles and welfare notes</h2></div></div><div class="grid-3"><article class="card dashboard-card"><h3>GV-118 Daisy</h3><p>Holstein, lactation day 86, excellent appetite.</p></article><article class="card dashboard-card"><h3>GV-204 Clover</h3><p>Pregnancy check due this week.</p></article><article class="card dashboard-card"><h3>GV-311 Maple</h3><p>Milk yield trending 8% above monthly average.</p></article></div></div>
-<div data-dash-section="milk" hidden><div class="section-head"><div><p class="section-kicker">Milk production</p><h2>Collection and quality summary</h2></div></div><div class="grid-3"><article class="card dashboard-card"><h3>Morning</h3><strong class="stat-number">938 L</strong></article><article class="card dashboard-card"><h3>Evening</h3><strong class="stat-number">912 L</strong></article><article class="card dashboard-card"><h3>Quality</h3><strong class="stat-number">98%</strong></article></div></div>
-<div data-dash-section="employees" hidden><div class="section-head"><div><p class="section-kicker">Employees</p><h2>Shift assignments</h2></div></div><ul class="activity-list"><li>Ana - milking lane lead</li><li>Marcus - feed and storage</li><li>Leah - veterinary records</li><li>Owen - quality lab</li></ul></div>
-<div data-dash-section="feed" hidden><div class="section-head"><div><p class="section-kicker">Feed inventory</p><h2>Stock and reorder visibility</h2></div></div><div class="grid-3"><article class="card dashboard-card"><h3>Silage</h3><p>18 days remaining</p></article><article class="card dashboard-card"><h3>Mineral Mix</h3><p>Reorder required</p></article><article class="card dashboard-card"><h3>Grain</h3><p>Stable supply</p></article></div></div>
-<div data-dash-section="vet" hidden><div class="section-head"><div><p class="section-kicker">Veterinary records</p><h2>Care plans and treatments</h2></div></div><ul class="activity-list"><li>Vaccination group A completed.</li><li>Hoof care review due Friday.</li><li>Recovery pen observation updated.</li></ul></div>
-<div data-dash-section="reports" hidden><div class="section-head"><div><p class="section-kicker">Reports</p><h2>Board-ready operations summaries</h2></div></div><div class="grid-3"><article class="card dashboard-card"><h3>Milk Yield Report</h3><p>Daily and weekly production patterns.</p></article><article class="card dashboard-card"><h3>Health Report</h3><p>Treatment and vaccination compliance.</p></article><article class="card dashboard-card"><h3>Cost Report</h3><p>Feed and labor trend overview.</p></article></div></div>
-<div data-dash-section="settings" hidden><div class="section-head"><div><p class="section-kicker">Settings</p><h2>Farm workspace controls</h2></div></div><form class="card contact-form" style="max-width:620px"><div class="form-grid"><div class="form-field"><label>Farm Name</label><input value="Stackly"></div><div class="form-field"><label>Report Email</label><input type="email" value="reports@stackly.com"></div><button class="btn-solid" type="button">Save Settings</button></div></form></div>
-</section></main><footer class="site-footer dashboard-footer"><div class="footer-bottom"><div class="footer-bottom-inner"><span>Copyright <span data-year></span> Stackly. All rights reserved.</span><div class="footer-legal"><a href="index.html">Website</a><a href="contact.html">Support</a><a href="login.html">Login</a></div></div></div></footer><script src="js/navigation.js"></script><script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script><script src="js/animations.js"></script><script src="js/counter.js"></script><script src="js/dashboard.js"></script><script src="js/main.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Stackly premium farm management dashboard.">
+  <title>Dashboard | Stackly</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+</head>
+<body class="dashboard-body">
+  <script>
+    document.body.classList.add("is-loading");
+    document.body.insertAdjacentHTML("afterbegin", `
+      <div id="stackly-page-loader" class="page-loader" aria-hidden="true">
+        <div class="page-loader-card" role="status" aria-live="polite" aria-label="Loading Stackly">
+          <span class="page-loader-ring" aria-hidden="true"></span>
+          <span class="page-loader-logo">
+            <img src="assets/images/logo stackly.webp" alt="">
+          </span>
+          <strong>Loading Stackly</strong>
+        </div>
+      </div>
+    `);
+  </script>
+  <main class="dashboard-shell page-shell">
+    <aside class="dashboard-sidebar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark"><img src="assets/images/logo stackly.webp" alt="Stackly logo"></span>
+      </a>
+      <nav class="dash-nav" aria-label="Dashboard navigation">
+        <a href="#" class="active" data-dash-link="overview">Dashboard</a>
+        <a href="#" data-dash-link="cows">Cow Management</a>
+        <a href="#" data-dash-link="milk">Milk Production</a>
+        <a href="#" data-dash-link="employees">Employees</a>
+        <a href="#" data-dash-link="feed">Feed Inventory</a>
+        <a href="#" data-dash-link="vet">Veterinary Records</a>
+        <a href="#" data-dash-link="reports">Reports</a>
+        <a href="#" data-dash-link="settings">Settings</a>
+        <button type="button" data-logout>Logout</button>
+      </nav>
+    </aside>
+
+    <section class="dashboard-main">
+      <div class="dashboard-topbar">
+        <div>
+          <p class="section-kicker">Operations overview</p>
+          <h1 style="font-size:clamp(2rem,4vw,3.2rem)">Welcome, <span data-welcome-user>Farm Manager</span></h1>
+        </div>
+        <div class="dashboard-topbar-right">
+          <span class="dashboard-email-chip" data-dashboard-email>Not signed in</span>
+          <a class="btn-outline" href="index.html">View Website</a>
+        </div>
+      </div>
+
+      <div data-dash-section="overview">
+        <div class="grid-4">
+          <article class="card dashboard-card reveal"><p>Daily Milk</p><strong class="stat-number" data-counter="1850" data-suffix=" L">0</strong></article>
+          <article class="card dashboard-card reveal"><p>Healthy Cows</p><strong class="stat-number" data-counter="412">0</strong></article>
+          <article class="card dashboard-card reveal"><p>Employees</p><strong class="stat-number" data-counter="36">0</strong></article>
+          <article class="card dashboard-card reveal"><p>Feed Stock</p><strong class="stat-number" data-counter="84" data-suffix="%">0</strong></article>
+        </div>
+
+        <div class="grid-2" style="margin-top:24px">
+          <article class="card dashboard-card reveal">
+            <h3>Milk Collection Chart</h3>
+            <div class="chart-bars">
+              <span style="height:62%"></span>
+              <span style="height:78%"></span>
+              <span style="height:68%"></span>
+              <span style="height:88%"></span>
+              <span style="height:74%"></span>
+              <span style="height:92%"></span>
+              <span style="height:81%"></span>
+            </div>
+          </article>
+          <article class="card dashboard-card reveal">
+            <h3>Recent Activities</h3>
+            <ul class="activity-list">
+              <li>Evening collection closed at 912 liters.</li>
+              <li>Vet follow-up scheduled for Barn B.</li>
+              <li>Feed inventory reorder created for mineral mix.</li>
+              <li>Quality lab approved Batch GV-2048.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="grid-3" style="margin-top:24px">
+          <article class="card dashboard-card reveal">
+            <h3>Weather Widget</h3>
+            <p>Partly cloudy, 24 C, light wind. Ideal grazing window before 3 PM.</p>
+          </article>
+          <article class="card dashboard-card reveal">
+            <h3>Quick Actions</h3>
+            <div class="feature-list">
+              <li>Add milk record</li>
+              <li>Create vet task</li>
+              <li>Update feed stock</li>
+            </div>
+          </article>
+          <article class="card dashboard-card reveal">
+            <h3>Calendar & Tasks</h3>
+            <ul class="task-list">
+              <li>10:00 AM Quality audit</li>
+              <li>2:00 PM Breeding review</li>
+              <li>5:30 PM Collection handover</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+
+      <div data-dash-section="cows" hidden>
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Cow management</p>
+            <h2>Herd profiles and welfare notes</h2>
+          </div>
+        </div>
+        <div class="grid-3">
+          <article class="card dashboard-card"><h3>GV-118 Daisy</h3><p>Holstein, lactation day 86, excellent appetite.</p></article>
+          <article class="card dashboard-card"><h3>GV-204 Clover</h3><p>Pregnancy check due this week.</p></article>
+          <article class="card dashboard-card"><h3>GV-311 Maple</h3><p>Milk yield trending 8% above monthly average.</p></article>
+        </div>
+      </div>
+
+      <div data-dash-section="milk" hidden>
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Milk production</p>
+            <h2>Collection and quality summary</h2>
+          </div>
+        </div>
+        <div class="grid-3">
+          <article class="card dashboard-card"><h3>Morning</h3><strong class="stat-number">938 L</strong></article>
+          <article class="card dashboard-card"><h3>Evening</h3><strong class="stat-number">912 L</strong></article>
+          <article class="card dashboard-card"><h3>Quality</h3><strong class="stat-number">98%</strong></article>
+        </div>
+      </div>
+
+      <div data-dash-section="employees" hidden>
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Employees</p>
+            <h2>Shift assignments</h2>
+          </div>
+        </div>
+        <ul class="activity-list">
+          <li>Ana - milking lane lead</li>
+          <li>Marcus - feed and storage</li>
+          <li>Leah - veterinary records</li>
+          <li>Owen - quality lab</li>
+        </ul>
+      </div>
+
+      <div data-dash-section="feed" hidden>
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Feed inventory</p>
+            <h2>Stock and reorder visibility</h2>
+          </div>
+        </div>
+        <div class="grid-3">
+          <article class="card dashboard-card"><h3>Silage</h3><p>18 days remaining</p></article>
+          <article class="card dashboard-card"><h3>Mineral Mix</h3><p>Reorder required</p></article>
+          <article class="card dashboard-card"><h3>Grain</h3><p>Stable supply</p></article>
+        </div>
+      </div>
+
+      <div data-dash-section="vet" hidden>
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Veterinary records</p>
+            <h2>Care plans and treatments</h2>
+          </div>
+        </div>
+        <ul class="activity-list">
+          <li>Vaccination group A completed.</li>
+          <li>Hoof care review due Friday.</li>
+          <li>Recovery pen observation updated.</li>
+        </ul>
+      </div>
+
+      <div data-dash-section="reports" hidden>
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Reports</p>
+            <h2>Board-ready operations summaries</h2>
+          </div>
+        </div>
+        <div class="grid-3">
+          <article class="card dashboard-card"><h3>Milk Yield Report</h3><p>Daily and weekly production patterns.</p></article>
+          <article class="card dashboard-card"><h3>Health Report</h3><p>Treatment and vaccination compliance.</p></article>
+          <article class="card dashboard-card"><h3>Cost Report</h3><p>Feed and labor trend overview.</p></article>
+        </div>
+      </div>
+
+      <div data-dash-section="settings" hidden>
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Settings</p>
+            <h2>Farm workspace controls</h2>
+          </div>
+        </div>
+        <form class="card contact-form" style="max-width:620px">
+          <div class="form-grid">
+            <div class="form-field"><label>Farm Name</label><input value="Stackly"></div>
+            <div class="form-field"><label>Report Email</label><input type="email" value="reports@stackly.com"></div>
+            <button class="btn-solid" type="button">Save Settings</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/navigation.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/counter.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

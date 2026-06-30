@@ -1,5 +1,5 @@
 .site-footer {
-  margin-top: 76px;
+  margin-top: 24px;
   color: rgba(255, 255, 255, 0.82);
   background:
     radial-gradient(circle at 15% 20%, rgba(244, 180, 0, 0.18), transparent 28%),
@@ -88,6 +88,19 @@
   background: rgba(255, 255, 255, 0.12);
   color: var(--white);
   font-weight: 800;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.social-row a:hover {
+  color: #073723;
+  background: var(--highlight);
+  transform: translateY(-2px);
+}
+
+.social-row svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
 }
 
 .footer-bottom {

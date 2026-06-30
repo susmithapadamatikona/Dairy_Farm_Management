@@ -45,13 +45,45 @@
   .hero-grid,
   .split,
   .contact-layout,
-  .auth-layout,
-  .dashboard-shell {
+  .auth-layout {
     grid-template-columns: 1fr;
+  }
+  .dashboard-shell {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .auth-layout {
+    gap: 18px;
+  }
+  .auth-copy {
+    padding: 0;
+    max-width: 720px;
+  }
+  .auth-copy h1 {
+    max-width: 100%;
+  }
+  .auth-highlights {
+    margin-top: 24px;
+  }
+  .auth-card {
+    padding: 28px;
   }
   .dashboard-sidebar {
     position: static;
+    inset: auto;
+    width: auto;
+    flex: 0 0 auto;
+    height: auto;
+    max-height: none;
+    overflow: visible;
     min-height: auto;
+  }
+  .dashboard-main {
+    width: 100%;
+    margin-left: 0;
+  }
+  .dashboard-footer {
+    margin-left: 0;
   }
   .hero-orbit-two {
     left: auto;
@@ -106,7 +138,21 @@
   .hero-agri {
     min-height: 780px;
     padding: 74px 0 210px;
-    background: url("../assets/images/home-hero-dairy.png") center right 34%/cover;
+    background:
+      linear-gradient(120deg, rgba(4, 38, 24, 0.42), rgba(7, 55, 35, 0.18)),
+      url("../assets/images/home-hero-dairy.png") center right 34%/cover;
+  }
+  .page-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: rgba(4, 38, 24, 0.22);
+    pointer-events: none;
+  }
+  .page-hero .container {
+    position: relative;
+    z-index: 2;
   }
   .hero::before,
   .hero-scanline,
@@ -170,6 +216,22 @@
     height: 38px;
     font-size: 0.66rem;
   }
+  .auth-page {
+    padding: 22px 0;
+  }
+  .auth-card {
+    padding: 22px;
+    border-radius: 22px;
+  }
+  .auth-card::before {
+    border-radius: 22px 22px 0 0;
+  }
+  .auth-card h2 {
+    font-size: 1.8rem;
+  }
+  .auth-highlights {
+    gap: 10px;
+  }
   .hero-stats-panel strong {
     font-size: 1.22rem;
   }
@@ -190,5 +252,37 @@
   .hero-trust-row span {
     flex: 1 1 130px;
     text-align: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .container.grid-2,
+  .container.grid-3,
+  .container.grid-4,
+  .about-feature-grid,
+  .gallery-grid,
+  .process-timeline,
+  .product-grid,
+  .impact-grid,
+  .testimonial-grid,
+  .faq-grid,
+  .home-services-grid,
+  .home-blog-grid,
+  .services-modules-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .card,
+  .feature-card,
+  .value-card,
+  .service-card,
+  .blog-card,
+  .about-feature-card,
+  .impact-card,
+  .testimonial-card,
+  .faq-card,
+  .product-card {
+    width: 100% !important;
+    min-width: 0 !important;
   }
 }

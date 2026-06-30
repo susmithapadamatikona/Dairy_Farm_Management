@@ -1,23 +1,35 @@
 const animationTargets = [
+  "main > section",
+  ".section > .container",
   ".page-hero .container",
   ".hero-agri-grid",
+  ".hero-agri-copy",
   ".hero-stats-panel",
   ".hero-stats-panel article",
   ".section-head",
   ".split > *",
   ".card",
+  ".grid-2 > *",
+  ".grid-3 > *",
+  ".grid-4 > *",
   ".feature-band",
   ".feature-list li",
   ".activity-list li",
   ".task-list li",
   ".image-stack",
+  ".timeline-item",
   ".gallery-grid",
   ".gallery-card",
   ".gallery-grid > img",
+  ".about-feature-card",
+  ".service-card",
   ".process-step",
   ".product-photo",
   ".product-showcase > div",
+  ".product-card",
   ".testimonial-card",
+  ".blog-layout > *",
+  ".sidebar-box",
   ".home-cta-box",
   ".auth-copy",
   ".auth-card",
@@ -25,6 +37,7 @@ const animationTargets = [
   ".dashboard-topbar",
   ".dashboard-main [class*='grid-'] > *",
   ".contact-layout > *",
+  ".contact-form",
   ".not-found .container",
   ".footer-col",
   ".footer-bottom-inner"
@@ -73,7 +86,8 @@ if (window.AOS) {
     easing: "ease-out-cubic",
     once: true,
     offset: 80,
-    mirror: false
+    mirror: false,
+    disableMutationObserver: false
   });
 
   window.addEventListener("load", () => AOS.refreshHard());

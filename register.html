@@ -1,3 +1,117 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Register for Stackly farm management access."><title>Register | Stackly</title><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"></head><body>
-<main class="auth-page page-shell"><section class="container auth-layout"><div class="auth-copy reveal"><a class="auth-logo" href="index.html" aria-label="Stackly home"><img src="assets/images/logo stackly.webp" alt="Stackly logo"></a><p class="section-kicker" style="color:#f7d96b">Start management</p><h1>Create a premium dairy operations account.</h1><p class="lead">Register your team lead profile and continue to the login page to access the dashboard.</p></div><form class="auth-card glass reveal fade-right" id="registerForm" novalidate><p class="section-kicker">Create account</p><h2>Register</h2><div class="form-grid" style="margin-top:22px"><div class="form-row"><div class="form-field"><label for="firstName">First Name</label><input id="firstName" required><span class="error-message"></span></div><div class="form-field"><label for="lastName">Last Name</label><input id="lastName" required><span class="error-message"></span></div></div><div class="form-row"><div class="form-field"><label for="email">Email</label><input id="email" type="email" required><span class="error-message"></span></div><div class="form-field"><label for="phone">Phone</label><input id="phone" type="tel" required><span class="error-message"></span></div></div><div class="form-row"><div class="form-field"><label for="password">Password</label><div class="password-wrap"><input id="password" type="password" required><button class="toggle-password" type="button" data-target="#password">Show</button></div><span class="error-message"></span></div><div class="form-field"><label for="confirmPassword">Confirm Password</label><div class="password-wrap"><input id="confirmPassword" type="password" required><button class="toggle-password" type="button" data-target="#confirmPassword">Show</button></div><span class="error-message"></span></div></div><div class="check-row"><label><input id="terms" type="checkbox"> I accept the farm data policy</label></div><span class="error-message" id="termsError"></span><button class="btn-solid" type="submit">Create Account</button><p>Already have an account? <a href="login.html">Login</a></p></div></form></section></main>
-<script src="js/navigation.js"></script><script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script><script src="js/animations.js"></script><script src="js/login.js"></script><script src="js/register.js"></script><script src="js/main.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Register for Stackly farm management access.">
+  <title>Register | Stackly</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+</head>
+<body>
+  <script>
+    document.body.classList.add("is-loading");
+    document.body.insertAdjacentHTML("afterbegin", `
+      <div id="stackly-page-loader" class="page-loader" aria-hidden="true">
+        <div class="page-loader-card" role="status" aria-live="polite" aria-label="Loading Stackly">
+          <span class="page-loader-ring" aria-hidden="true"></span>
+          <span class="page-loader-logo">
+            <img src="assets/images/logo stackly.webp" alt="">
+          </span>
+          <strong>Loading Stackly</strong>
+        </div>
+      </div>
+    `);
+  </script>
+  <main class="auth-page page-shell">
+    <section class="container auth-layout">
+      <div class="auth-copy reveal">
+        <a class="auth-logo" href="index.html" aria-label="Stackly home">
+          <img src="assets/images/logo stackly.webp" alt="Stackly logo">
+        </a>
+        <p class="section-kicker auth-kicker">Start management</p>
+        <h1>Create a premium dairy operations account.</h1>
+        <p class="lead">
+          Register your team lead profile and continue to the login page to access the dashboard.
+        </p>
+      </div>
+
+      <form class="auth-card glass reveal fade-right" id="registerForm" novalidate>
+        <div class="auth-card-header">
+          <p class="section-kicker">Create account</p>
+          <h2>Register</h2>
+          <p class="auth-card-note">Fill in your details to create your account.</p>
+        </div>
+
+        <div class="form-grid auth-form-grid">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="firstName">First Name</label>
+              <input id="firstName" type="text" name="first-name" autocomplete="given-name" autocapitalize="words" spellcheck="false" placeholder="Enter first name" required>
+              <span class="error-message"></span>
+            </div>
+            <div class="form-field">
+              <label for="lastName">Last Name</label>
+              <input id="lastName" type="text" name="last-name" autocomplete="family-name" autocapitalize="words" spellcheck="false" placeholder="Enter last name" required>
+              <span class="error-message"></span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="email">Email</label>
+              <input id="email" type="email" name="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="you@example.com" required>
+              <span class="error-message"></span>
+            </div>
+            <div class="form-field">
+              <label for="phone">Phone</label>
+              <input id="phone" type="tel" name="phone" autocomplete="tel" placeholder="Enter phone number" required>
+              <span class="error-message"></span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="password">Password</label>
+              <div class="password-wrap">
+                <input id="password" type="password" name="password" autocomplete="new-password" autocapitalize="off" spellcheck="false" placeholder="Create a password" required>
+                <button class="toggle-password" type="button" data-target="#password" aria-label="Show password" aria-pressed="false">
+                  <svg class="icon-eye" viewBox="0 0 24 24" aria-hidden="true"></svg>
+                </button>
+              </div>
+              <span class="error-message"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="confirmPassword">Confirm Password</label>
+              <div class="password-wrap">
+                <input id="confirmPassword" type="password" name="confirm-password" autocomplete="new-password" autocapitalize="off" spellcheck="false" placeholder="Confirm your password" required>
+                <button class="toggle-password" type="button" data-target="#confirmPassword" aria-label="Show password" aria-pressed="false">
+                  <svg class="icon-eye" viewBox="0 0 24 24" aria-hidden="true"></svg>
+                </button>
+              </div>
+              <span class="error-message"></span>
+            </div>
+          </div>
+
+          <div class="check-row">
+            <label><input id="terms" type="checkbox"> I accept the farm data policy</label>
+          </div>
+          <span class="error-message" id="termsError"></span>
+
+          <button class="btn-solid auth-submit" type="submit">Create Account</button>
+          <p class="auth-footnote">Already have an account? <a href="login.html">Login</a></p>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="js/navigation.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/login.js"></script>
+  <script src="js/register.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

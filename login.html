@@ -1,3 +1,139 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Login to the Stackly management dashboard."><title>Login | Stackly</title><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"></head><body>
-<main class="auth-page page-shell"><section class="container auth-layout"><div class="auth-copy reveal"><a class="auth-logo" href="index.html" aria-label="Stackly home"><img src="assets/images/logo stackly.webp" alt="Stackly logo"></a><p class="section-kicker" style="color:#f7d96b">Manager access</p><h1>Welcome back to the farm command center.</h1><p class="lead">Sign in to review milk collection, herd health, employee tasks, feed inventory, and farm reports.</p></div><form class="auth-card glass reveal fade-right" id="loginForm" novalidate><p class="section-kicker">Secure login</p><h2>Login</h2><div class="form-grid" style="margin-top:22px"><div class="form-field"><label for="email">Email</label><input id="email" type="email" autocomplete="email" required><span class="error-message"></span></div><div class="form-field"><label for="password">Password</label><div class="password-wrap"><input id="password" type="password" autocomplete="current-password" required><button class="toggle-password" type="button" data-target="#password">Show</button></div><span class="error-message"></span></div><div class="auth-tools"><label><input type="checkbox"> Remember me</label><a href="404.html">Forgot password?</a></div><button class="btn-solid" type="submit">Login</button><p>New to Stackly? <a href="register.html">Create an account</a></p></div></form></section></main>
-<script src="js/navigation.js"></script><script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script><script src="js/animations.js"></script><script src="js/login.js"></script><script src="js/main.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Login to the Stackly management dashboard.">
+  <title>Login | Stackly</title>
+  <link rel="stylesheet" href="css/style.css?v=4">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+</head>
+<body>
+  <script>
+    document.body.classList.add("is-loading");
+    document.body.insertAdjacentHTML("afterbegin", `
+      <div id="stackly-page-loader" class="page-loader" aria-hidden="true">
+        <div class="page-loader-card" role="status" aria-live="polite" aria-label="Loading Stackly">
+          <span class="page-loader-ring" aria-hidden="true"></span>
+          <span class="page-loader-logo">
+            <img src="assets/images/logo stackly.webp" alt="">
+          </span>
+          <strong>Loading Stackly</strong>
+        </div>
+      </div>
+    `);
+  </script>
+  <main class="auth-page page-shell">
+    <section class="container auth-layout">
+      <div class="auth-copy reveal">
+        <a class="auth-logo" href="index.html" aria-label="Stackly home">
+          <img src="assets/images/logo stackly.webp" alt="Stackly logo">
+        </a>
+        <p class="section-kicker auth-kicker">Manager access</p>
+        <h1>Welcome back to the farm command center.</h1>
+        <p class="lead">
+          Sign in to review milk collection, herd health, employee tasks, feed inventory, and farm reports.
+        </p>
+
+        <div class="auth-highlights" aria-label="Login benefits">
+          <div class="auth-highlight">
+            <strong>Secure access</strong>
+            <span>Role-based login for farm operations.</span>
+          </div>
+          <div class="auth-highlight">
+            <strong>Daily overview</strong>
+            <span>Quick access to records, tasks, and alerts.</span>
+          </div>
+          <div class="auth-highlight">
+            <strong>Trusted team use</strong>
+            <span>Built for managers, supervisors, and staff.</span>
+          </div>
+        </div>
+
+      </div>
+
+      <form class="auth-card glass reveal fade-right" id="loginForm" autocomplete="off" novalidate>
+        <div class="auth-card-header">
+          <p class="section-kicker">Secure login</p>
+          <h2>Login</h2>
+          <p class="auth-card-note">Choose your role and sign in to continue.</p>
+        </div>
+
+        <div class="form-grid auth-form-grid">
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input id="email" type="email" name="login-email" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="you@example.com" required>
+            <span class="error-message"></span>
+          </div>
+
+          <div class="form-field">
+            <label for="password">Password</label>
+            <div class="password-wrap">
+              <input id="password" type="password" name="login-password" autocomplete="new-password" autocapitalize="off" spellcheck="false" placeholder="Enter your password" required>
+              <button class="toggle-password" type="button" data-target="#password" aria-label="Show password" aria-pressed="false">
+                <svg class="icon-eye" viewBox="0 0 24 24" aria-hidden="true"></svg>
+              </button>
+            </div>
+            <span class="error-message"></span>
+          </div>
+
+          <div class="form-field">
+            <label for="role">Select role</label>
+            <select id="role" name="login-role" autocomplete="off" required>
+              <option value="" selected disabled>Choose a role</option>
+              <option value="manager">Manager</option>
+              <option value="supervisor">Supervisor</option>
+              <option value="staff">Staff</option>
+            </select>
+            <span class="error-message"></span>
+          </div>
+
+          <div class="auth-tools">
+            <label>
+              <input type="checkbox">
+              Remember me
+            </label>
+            <a href="404.html">Forgot password?</a>
+          </div>
+
+          <button class="btn-solid auth-submit" type="submit">Login</button>
+          <p class="auth-footnote">New to Stackly? <a href="register.html">Create an account</a></p>
+
+          <div class="auth-socials auth-socials--card" aria-label="Social media links">
+            <a class="auth-social auth-social--card" href="404.html" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14 8h2V5h-2c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h2.4l.6-3h-3V9c0-.6.4-1 1-1Z"></path>
+              </svg>
+            </a>
+            <a class="auth-social auth-social--card" href="404.html" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="4" y="4" width="16" height="16" rx="4.5" fill="none" stroke="currentColor" stroke-width="2"></rect>
+                <circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="2"></circle>
+                <circle cx="17" cy="7" r="1.2"></circle>
+              </svg>
+            </a>
+            <a class="auth-social auth-social--card" href="404.html" aria-label="Twitter">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M22 5.9c-.7.3-1.4.5-2.2.6.8-.5 1.3-1.2 1.6-2.1-.7.4-1.5.8-2.4.9A3.7 3.7 0 0 0 12.6 8c0 .3 0 .6.1.8A10.5 10.5 0 0 1 5.1 5a3.7 3.7 0 0 0 1.1 4.9c-.6 0-1.2-.2-1.7-.5v.1c0 1.8 1.3 3.3 3 3.6-.5.1-1.1.2-1.7.1.5 1.5 1.9 2.6 3.5 2.6A7.5 7.5 0 0 1 4 17.6a10.5 10.5 0 0 0 5.7 1.7c6.8 0 10.6-5.7 10.6-10.6v-.5c.7-.5 1.3-1.1 1.7-1.8Z"></path>
+              </svg>
+            </a>
+            <a class="auth-social auth-social--card" href="404.html" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="6" width="18" height="12" rx="4" fill="none" stroke="currentColor" stroke-width="2"></rect>
+                <path d="M10 9.5v5l4-2.5-4-2.5Z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="js/navigation.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/login.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

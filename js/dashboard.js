@@ -1,10 +1,23 @@
 const dashLinks = document.querySelectorAll("[data-dash-link]");
 const dashSections = document.querySelectorAll("[data-dash-section]");
 const welcomeUser = document.querySelector("[data-welcome-user]");
+const dashboardEmail = document.querySelector("[data-dashboard-email]");
 const logoutBtn = document.querySelector("[data-logout]");
 
+function goWithLoader(href) {
+  if (window.StacklyPageLoader) {
+    window.StacklyPageLoader.navigate(href);
+    return;
+  }
+  window.location.href = href;
+}
+
 if (welcomeUser) {
-  welcomeUser.textContent = sessionStorage.getItem("dairyFarmUser") || "Farm Manager";
+  welcomeUser.textContent = "Farm Manager";
+}
+
+if (dashboardEmail) {
+  dashboardEmail.textContent = sessionStorage.getItem("dairyFarmUser") || "Not signed in";
 }
 
 dashLinks.forEach((link) => {
@@ -25,6 +38,7 @@ dashLinks.forEach((link) => {
 if (logoutBtn) {
   logoutBtn.addEventListener("click", () => {
     sessionStorage.removeItem("dairyFarmUser");
-    window.location.href = "login.html";
+    sessionStorage.removeItem("dairyFarmRole");
+    goWithLoader("login.html");
   });
 }

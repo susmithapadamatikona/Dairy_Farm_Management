@@ -1,5 +1,13 @@
 const registerForm = document.querySelector("#registerForm");
 
+function goWithLoader(href) {
+  if (window.StacklyPageLoader) {
+    window.StacklyPageLoader.navigate(href);
+    return;
+  }
+  window.location.href = href;
+}
+
 function showError(field, message) {
   const wrapper = field.closest(".form-field");
   const error = wrapper ? wrapper.querySelector(".error-message") : null;
@@ -57,6 +65,6 @@ if (registerForm) {
 
     if (!valid) return;
     localStorage.setItem("dairyFarmRegisteredUser", fields.email.value.trim());
-    window.location.href = "login.html";
+    goWithLoader("login.html");
   });
 }
