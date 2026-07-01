@@ -47,10 +47,13 @@ if (logoutBtn) {
 }
 
 if (dashboardMenuToggle && dashboardSidebar && dashboardBackdrop) {
+  dashboardSidebar.setAttribute("aria-hidden", "true");
+
   const closeSidebar = () => {
     dashboardSidebar.classList.remove("is-open");
     dashboardBackdrop.hidden = true;
     document.body.classList.remove("dashboard-nav-open");
+    dashboardSidebar.setAttribute("aria-hidden", "true");
     dashboardMenuToggle.setAttribute("aria-expanded", "false");
   };
 
@@ -58,6 +61,7 @@ if (dashboardMenuToggle && dashboardSidebar && dashboardBackdrop) {
     dashboardSidebar.classList.add("is-open");
     dashboardBackdrop.hidden = false;
     document.body.classList.add("dashboard-nav-open");
+    dashboardSidebar.setAttribute("aria-hidden", "false");
     dashboardMenuToggle.setAttribute("aria-expanded", "true");
   };
 

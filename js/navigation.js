@@ -1,5 +1,6 @@
 const currentPage = location.pathname.split("/").pop() || "index.html";
 const loaderDuration = 1500;
+const navigationLoaderFlag = "stackly-nav-transition";
 
 const pageLoader = (() => {
   const loaderId = "stackly-page-loader";
@@ -35,6 +36,7 @@ const pageLoader = (() => {
   };
 
   const navigate = (href) => {
+    sessionStorage.setItem(navigationLoaderFlag, "1");
     show();
     window.setTimeout(() => {
       window.location.href = href;
@@ -45,9 +47,18 @@ const pageLoader = (() => {
 })();
 
 window.StacklyPageLoader = pageLoader;
+const skipInitialLoaderDelay = sessionStorage.getItem(navigationLoaderFlag) === "1";
+if (skipInitialLoaderDelay) {
+  sessionStorage.removeItem(navigationLoaderFlag);
+}
 
 const hideInitialLoader = () => {
   if (!document.body.classList.contains("is-loading")) {
+    return;
+  }
+
+  if (skipInitialLoaderDelay) {
+    pageLoader.hide();
     return;
   }
 

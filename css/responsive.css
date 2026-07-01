@@ -52,6 +52,43 @@
     flex-direction: column;
     align-items: stretch;
   }
+  .dashboard-mobile-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+  .dashboard-mobile-bar .brand {
+    min-width: 0;
+  }
+  .dashboard-mobile-bar .brand-mark {
+    width: 132px;
+    height: 46px;
+  }
+  .dashboard-mobile-bar .menu-toggle {
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    line-height: 0;
+    border: 1px solid rgba(11, 93, 59, 0.10);
+    border-radius: 15px;
+    background: #ffffff;
+    color: var(--primary);
+    box-shadow: 0 8px 20px rgba(20, 54, 38, 0.08);
+  }
+  .dashboard-mobile-bar .menu-toggle span {
+    width: 18px;
+    height: 2.5px;
+    margin: 2.25px 0;
+    border-radius: 999px;
+    background: currentColor;
+  }
+  .dashboard-topbar-right {
+    display: none;
+  }
   .auth-layout {
     gap: 18px;
   }
@@ -69,21 +106,44 @@
     padding: 28px;
   }
   .dashboard-sidebar {
-    position: static;
-    inset: auto;
-    width: auto;
-    flex: 0 0 auto;
-    height: auto;
-    max-height: none;
-    overflow: visible;
-    min-height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    width: min(84vw, 320px);
+    height: 100vh;
+    padding: 24px 18px 24px;
+    overflow-y: auto;
+    transform: translateX(-104%);
+    visibility: hidden;
+    pointer-events: none;
+    opacity: 0;
+    transition: transform 0.24s ease;
+    box-shadow: 20px 0 42px rgba(8, 39, 24, 0.24);
+  }
+  .dashboard-sidebar.is-open {
+    transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
+    opacity: 1;
   }
   .dashboard-main {
     width: 100%;
     margin-left: 0;
+    padding-top: 22px;
+  }
+  .dashboard-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 18;
+    background: rgba(7, 55, 35, 0.42);
+    backdrop-filter: blur(2px);
   }
   .dashboard-footer {
     margin-left: 0;
+  }
+  .dashboard-topbar {
+    display: none;
   }
   .hero-orbit-two {
     left: auto;

@@ -1484,6 +1484,10 @@
   padding: 28px clamp(20px, 2vw, 32px) 28px 28px;
 }
 
+.dashboard-mobile-bar {
+  display: none;
+}
+
 .dashboard-footer {
   margin-left: 0;
 }
