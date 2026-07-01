@@ -1,4 +1,5 @@
 const registerForm = document.querySelector("#registerForm");
+const phoneInput = document.querySelector("#phone");
 
 function goWithLoader(href) {
   if (window.StacklyPageLoader) {
@@ -39,6 +40,19 @@ function getPasswordError(password) {
   return "";
 }
 
+function sanitizePhoneInput(value) {
+  return value.replace(/\D+/g, "");
+}
+
+if (phoneInput) {
+  phoneInput.addEventListener("input", () => {
+    const sanitized = sanitizePhoneInput(phoneInput.value);
+    if (phoneInput.value !== sanitized) {
+      phoneInput.value = sanitized;
+    }
+  });
+}
+
 if (registerForm) {
   registerForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -66,6 +80,12 @@ if (registerForm) {
 
     if (fields.email.value && !fields.email.validity.valid) {
       showError(fields.email, "Enter a valid email address.");
+      valid = false;
+    }
+
+    const phoneValue = sanitizePhoneInput(fields.phone.value.trim());
+    if (!/^\d{10,15}$/.test(phoneValue)) {
+      showError(fields.phone, "Enter a valid phone number using 10 to 15 digits only.");
       valid = false;
     }
 
