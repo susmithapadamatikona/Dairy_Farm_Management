@@ -15,6 +15,30 @@ function showError(field, message) {
   field.setAttribute("aria-invalid", message ? "true" : "false");
 }
 
+function getPasswordError(password) {
+  if (password.length < 8) {
+    return "Use at least 8 characters.";
+  }
+
+  if (!/[a-z]/.test(password)) {
+    return "Include at least one lowercase letter.";
+  }
+
+  if (!/[A-Z]/.test(password)) {
+    return "Include at least one uppercase letter.";
+  }
+
+  if (!/\d/.test(password)) {
+    return "Include at least one number.";
+  }
+
+  if (!/[^\w\s]/.test(password)) {
+    return "Include at least one special character.";
+  }
+
+  return "";
+}
+
 if (registerForm) {
   registerForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -45,12 +69,13 @@ if (registerForm) {
       valid = false;
     }
 
-    if (fields.password.value && fields.password.value.length < 6) {
-      showError(fields.password, "Use at least 6 characters.");
+    const passwordError = getPasswordError(fields.password.value);
+    if (passwordError) {
+      showError(fields.password, passwordError);
       valid = false;
     }
 
-    if (fields.confirm.value && fields.password.value !== fields.confirm.value) {
+    if (fields.password.value && fields.confirm.value && fields.password.value !== fields.confirm.value) {
       showError(fields.confirm, "Passwords do not match.");
       valid = false;
     }
@@ -65,6 +90,7 @@ if (registerForm) {
 
     if (!valid) return;
     localStorage.setItem("dairyFarmRegisteredUser", fields.email.value.trim());
+    localStorage.setItem("dairyFarmRegisteredPassword", fields.password.value);
     goWithLoader("login.html");
   });
 }

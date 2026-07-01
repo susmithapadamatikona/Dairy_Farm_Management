@@ -1,13 +1,19 @@
 const passwordEyeOpen = `
-  <path d="M2.25 12s3.75-6.75 9.75-6.75S21.75 12 21.75 12 18 18.75 12 18.75 2.25 12 2.25 12Z"></path>
-  <circle cx="12" cy="12" r="3.25"></circle>
+  <path d="M2 12s3.75-7 10-7 10 7 10 7-3.75 7-10 7-10-7-10-7Z"></path>
+  <circle cx="12" cy="12" r="2.7" fill="currentColor" stroke="none"></circle>
 `;
 
 const passwordEyeClosed = `
-  <path d="M3 3l18 18"></path>
-  <path d="M6.2 6.2C3.8 7.7 2.25 12 2.25 12S6 18.75 12 18.75c1.28 0 2.48-.21 3.57-.57"></path>
-  <path d="M9.44 5.3A11.8 11.8 0 0 1 12 5.25C18 5.25 21.75 12 21.75 12a18.3 18.3 0 0 1-2.76 3.96"></path>
+  <path d="M2 2l20 20"></path>
+  <path d="M3.6 7.5C2.1 8.9 1 10.5 1 12c2 4.4 6.1 7.5 11 7.5 1.7 0 3.3-.3 4.8-1"></path>
+  <path d="M7.2 6.2A11.4 11.4 0 0 1 12 5c5 0 9 3.1 11 7.5-.8 1.8-2.2 3.5-4.1 5"></path>
+  <circle cx="12" cy="12" r="2.7" fill="currentColor" stroke="none"></circle>
 `;
+
+const demoCredentials = {
+  email: "manager@stackly.com",
+  password: "Stackly@123",
+};
 
 const loginForm = document.querySelector("#loginForm");
 
@@ -26,12 +32,37 @@ function setFieldError(field, message) {
   field.setAttribute("aria-invalid", message ? "true" : "false");
 }
 
+function getPasswordError(password) {
+  if (password.length < 8) {
+    return "Use at least 8 characters.";
+  }
+
+  if (!/[a-z]/.test(password)) {
+    return "Include at least one lowercase letter.";
+  }
+
+  if (!/[A-Z]/.test(password)) {
+    return "Include at least one uppercase letter.";
+  }
+
+  if (!/\d/.test(password)) {
+    return "Include at least one number.";
+  }
+
+  if (!/[^\w\s]/.test(password)) {
+    return "Include at least one special character.";
+  }
+
+  return "";
+}
+
 function setPasswordToggleState(button, input) {
   const isVisible = input.type === "text";
   const icon = button.querySelector(".icon-eye");
 
   button.setAttribute("aria-label", isVisible ? "Hide password" : "Show password");
   button.setAttribute("aria-pressed", isVisible ? "true" : "false");
+  button.title = isVisible ? "Hide password" : "Show password";
 
   if (icon) {
     icon.innerHTML = isVisible ? passwordEyeOpen : passwordEyeClosed;
@@ -55,11 +86,22 @@ if (loginForm) {
     const role = loginForm.querySelector("#role");
     const email = loginForm.querySelector("#email");
     const password = loginForm.querySelector("#password");
+    const rememberMe = loginForm.querySelector("#rememberMe");
+    const rememberError = loginForm.querySelector("#rememberError");
     let valid = true;
+    const enteredEmail = email.value.trim();
+    const enteredPassword = password.value;
+    const registeredEmail = localStorage.getItem("dairyFarmRegisteredUser");
+    const registeredPassword = localStorage.getItem("dairyFarmRegisteredPassword");
+    const hasRegisteredAccount = Boolean(registeredEmail && registeredPassword);
+    const matchesCredentials = hasRegisteredAccount
+      ? enteredEmail === registeredEmail && enteredPassword === registeredPassword
+      : enteredEmail === demoCredentials.email && enteredPassword === demoCredentials.password;
 
     setFieldError(role, "");
     setFieldError(email, "");
     setFieldError(password, "");
+    if (rememberError) rememberError.textContent = "";
 
     if (!role.value) {
       setFieldError(role, "Please select a role.");
@@ -77,11 +119,25 @@ if (loginForm) {
     if (!password.value.trim()) {
       setFieldError(password, "Password is required.");
       valid = false;
+    } else {
+      const passwordError = getPasswordError(enteredPassword);
+      if (passwordError) {
+        setFieldError(password, passwordError);
+        valid = false;
+      } else if (!matchesCredentials) {
+        setFieldError(password, "Incorrect email or password.");
+        valid = false;
+      }
+    }
+
+    if (!rememberMe.checked) {
+      if (rememberError) rememberError.textContent = "Please check Remember me to continue.";
+      valid = false;
     }
 
     if (!valid) return;
     sessionStorage.setItem("dairyFarmRole", role.value);
-    sessionStorage.setItem("dairyFarmUser", email.value.trim());
+    sessionStorage.setItem("dairyFarmUser", enteredEmail);
     goWithLoader("dashboard.html");
   });
 }

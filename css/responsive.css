@@ -220,13 +220,11 @@
     display: none;
   }
   .hero-actions,
-  .newsletter-form,
   .footer-bottom-inner {
     align-items: stretch;
     flex-direction: column;
   }
-  .hero-actions a,
-  .newsletter-form button {
+  .hero-actions a {
     width: 100%;
   }
   .footer-legal {
